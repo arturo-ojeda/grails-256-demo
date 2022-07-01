@@ -1,0 +1,51 @@
+/web-app/WEB-INF/classes
+
+.DS_Store
+
+# default HSQL database files for production mode
+/prodDb.*
+
+# general HSQL database files
+*Db.properties
+*Db.script
+
+# logs
+/stacktrace.log
+/test/reports
+/logs
+
+# project release file
+/*.war
+
+# plugin release files
+/*.zip
+/plugin.xml
+
+# older plugin install locations
+/plugins
+/web-app/plugins
+
+# "temporary" build files
+target/
+/target
+/.idea
+/.slcache
+.asscache
+/out
+/*.iml
+grails-app/*.idea
+.idea
+/temp
+firebase-admin-sdk-service-account-prd.json
+
+node_modules/
+.gradle/
+
+# JS i18n messages
+web-app/datafiles/i18n/*.js
+grails-app/assets/javascripts/i18n/*.js
+
+.vagrant
+
+package-lock.json
+cobertura.ser
