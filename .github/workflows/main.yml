@@ -27,7 +27,7 @@ jobs:
         id: cache-dependencies
         with:
           key: ${{ runner.os }}-${{ hashFiles('**/BuildConfig.groovy') }}
-          path: ~/.m2
+          path: ~/.grails
           restore-keys: |
             ${{ runner.os }}-
 
