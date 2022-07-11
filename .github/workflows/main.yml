@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache@v3
         id: cache-dependencies
         with:
-          key: ${{ runner.os }}-${{ hashFiles('./grails-app/conf/BuildConfig.groovy') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/BuildConfig.groovy') }}
           path: |            
             - ~/.grails
             - ~/.m2
