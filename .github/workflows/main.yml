@@ -1,0 +1,40 @@
+# .github/workflows/main.yaml
+name: Unit and integration testing
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+
+  unit-test-cases:
+    name: Unit test cases
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('./grails-app/conf/BuildConfig.groovy') }}
+          path: |            
+            - ~/.grails
+            - ~/.m2
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Run unit tests
+        env:
+          GRAILS_OPTS: -server -Xmx1024m -Xms512m -Dfile.encoding=UTF-8          
+        run: |
+          ./grailsw test-app --unit --non-interactive --plain-output --stacktrace  
